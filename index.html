@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodpanda Philippines: Food Delivery in the Philippines</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href=
+    "https://th.bing.com/th/id/OIP.-c9_Pm6tMZkaNehw9cK96AHaIV?rs=1&pid=ImgDetMain"
+            type="image/x-icon" />
+</head>
+<body>
+    <!-- Business Account Banner -->
+    <div class="business-banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-icon">
+                </div>
+                 
+                <p>Do you need a business account?</p>
+                <a href="signup.html"><button class="signup-now-btn">SIGN UP NOW</button></a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    
+                    
+                    <span>Foodpanda</span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="login.html" class="login-btn">Log in</a>
+                <a href="signup.html" class="signup-btn">Sign up</a>
+                <div class="language-selector">
+                    <span class="globe-icon">
+                        <i class="fas fa-globe"></i>
+                    </span>
+                    <span>EN</span>
+                    <span class="dropdown-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Enjoy discounts on your first order</h1>
+                <div class="search-container">
+                    <div class="search-input">
+                        <input type="text" placeholder="Enter your address">
+                        <button class="locate-btn">
+                            <i class="fas fa-crosshairs"></i>
+                            Locate me
+                        </button>
+                    </div>
+                    <button class="find-food-btn">Find food</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secondary Section -->
+    <section class="secondary-section">
+        <div class="container">
+            <h2>You prepare the food and products, we handle the rest</h2> 
+        </div>
+        
+           <!-- Fast Food Section -->
+    <section class="fast-food-section">
+        <div class="filter-controls">
+            <div class="container">
+                <div class="section-header">
+                    <section class="fast-food-section">
+                        <div class="container">
+                            <div class="section-header">
+                                <h2>Popular Fast Food</h2>
+                                <div class="filter-controls">
+                                    <button class="filter-btn active" data-filter="all">All</button>
+                                    <button class="filter-btn" data-filter="burger">Burger</button>
+                                    <button class="filter-btn" data-filter="chicken">Chicken</button>
+                                    <button class="filter-btn" data-filter="pizza">Pizza</button>
+                                    <button class="filter-btn" data-filter="chinese">Chinese</button>
+                                    <button class="filter-btn" data-filter="pasta">Pasta</button>
+                                    <button class="filter-btn" data-filter="dessert">Dessert</button>
+                                   
+                                </div>
+                            </div>
+                            
+                            <div class="food-items">
+                                <!-- Burger Item -->
+                                <div class="food-card" data-category="burger">
+                                    <div class="food-image">
+                                       <a href="cheeseburger.html"><img src="cheeseburger.jpg" alt="Cheeseburger Deluxe"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Burger King</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.5</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Cheeseburger Deluxe</h3>
+                                        <p class="food-description">Juicy beef patty with melted cheese, fresh lettuce, tomatoes, and special sauce.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>15-25 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱144</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Chicken Item -->
+                                <div class="food-card" data-category="chicken">
+                                    <div class="food-image">
+                                        <a href="chickenjoy.html">
+                                            <img src="chicken joy.jpg" alt="Crispy Fried Chicken">
+                                        </a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Jollibee</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.7</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Chickenjoy Bucket</h3>
+                                        <p class="food-description">6-piece crispy fried chicken with gravy and a side of spaghetti.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>20-30 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱450</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pizza Item -->
+                                <div class="food-card" data-category="pizza">
+                                    <div class="food-image">
+                                       <a href="panpizza.html"> <img src="pizza.jpg" alt="Supreme Pizza"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Pizza Hut</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.3</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Supreme Pan Pizza</h3>
+                                        <p class="food-description">Large pan pizza loaded with pepperoni, sausage, bell peppers, onions, and mushrooms.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>25-40 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱499</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- KFC Item -->
+                                <div class="food-card" data-category="chicken">
+                                    <div class="food-image">
+                                        <a href="bucketkfc.html"><img src="kfc-bucket.jpg" alt="KFC Bucket"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>KFC</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.4</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Original Recipe Bucket</h3>
+                                        <p class="food-description">8-piece bucket of the Colonel's secret recipe fried chicken with 11 herbs and spices.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>20-35 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱550</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- McDonald's Item -->
+                                <div class="food-card" data-category="burger">
+                                    <div class="food-image">
+                                       <a href="bigmac.html"> <img src="bigmac.jpg" alt="Big Mac"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>McDonald's</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.2</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Big Mac Meal</h3>
+                                        <p class="food-description">Iconic double-decker burger with special sauce, served with fries and a drink.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>15-25 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱199</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Mang Inasal Item -->
+                                <div class="food-card" data-category="chicken">
+                                    <div class="food-image">
+                                      <a href="inasal.html">  <img src="chicken-inasal.webp" alt="Chicken Inasal"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Mang Inasal</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.6</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Chicken Inasal Paa</h3>
+                                        <p class="food-description">Grilled chicken leg quarter marinated in Filipino spices, served with unlimited rice.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>20-30 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱169</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Chowking Item -->
+                                <div class="food-card" data-category="chinese">
+                                    <div class="food-image">
+                                     <a href="lauriat.html">   <img src="lauriat.jpg" alt="Lauriat Meal"> </a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Chowking</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.1</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Lauriat Meal</h3>
+                                        <p class="food-description">Complete Chinese meal with sweet and sour pork, pancit canton, rice, and wonton soup.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>20-35 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱199</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Jollibee Spaghetti Item -->
+                                <div class="food-card" data-category="pasta">
+                                    <div class="food-image">
+                                       <a href="spaghetti.html"> <img src="jolly-spagheti.jpg" alt="Jolly Spaghetti"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Jollibee</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.5</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Jolly Spaghetti</h3>
+                                        <p class="food-description">Sweet-style spaghetti with ground meat, hotdog slices, and cheese.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>15-25 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱99</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- McDonald's Chicken Item -->
+                                <div class="food-card" data-category="chicken">
+                                    <div class="food-image">
+                                       <a href="chickenmcdo.html"> <img src="chicken-mcdo.jpg" alt="Chicken McDo"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>McDonald's</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.3</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Chicken McDo</h3>
+                                        <p class="food-description">Crispy fried chicken with gravy, served with rice or fries.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>15-25 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱129</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Additional Menu Items -->
+                                
+                                <!-- KFC Zinger -->
+                                <div class="food-card" data-category="burger">
+                                    <div class="food-image">
+                                      <a href="zingerburger.html">  <img src="zinger-burger.jpg" alt="Zinger Burger"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>KFC</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.6</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Zinger Burger</h3>
+                                        <p class="food-description">Spicy chicken fillet with lettuce and mayo in a soft bun.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>20-35 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱159</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Pizza Hut Hawaiian -->
+                                <div class="food-card" data-category="pizza">
+                                    <div class="food-image">
+                                      <a href="hawaianpizza.html">  <img src="hawaian-pizza.jpg" alt="Hawaiian Pizza"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Pizza Hut</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.2</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Hawaiian Feast</h3>
+                                        <p class="food-description">Classic ham and pineapple pizza with extra cheese on a hand-tossed crust.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>25-40 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱459</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Jollibee Yumburger -->
+                                <div class="food-card" data-category="burger">
+                                    <div class="food-image">
+                                        <a href="yumburger.html"><img src="yumburger.jpg" alt="Yumburger"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Jollibee</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.4</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Yumburger</h3>
+                                        <p class="food-description">100% pure beef patty with Jollibee's special burger dressing on a fresh bun.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>15-25 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱49</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Chowking Siomai -->
+                                <div class="food-card" data-category="chinese">
+                                    <div class="food-image">
+                                       <a href="siomai.html"> <img src="Siomai-Chao-Fan.webp" alt="Siomai"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Chowking</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.4</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Siomai Rice</h3>
+                                        <p class="food-description">Steamed pork dumplings served with rice and chili-garlic sauce.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>20-35 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱99</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- McDonald's McFlurry -->
+                                <div class="food-card" data-category="dessert">
+                                    <div class="food-image">
+                                      <a href="oreo.html">  <img src="oreo.jpg" alt="McFlurry"></a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>McDonald's</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.7</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Oreo McFlurry</h3>
+                                        <p class="food-description">Creamy vanilla soft serve mixed with Oreo cookie pieces.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>15-25 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱79</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Mang Inasal Halo-Halo -->
+                                <div class="food-card" data-category="dessert">
+                                    <div class="food-image">
+                                       <a href="halohalo.html"> <img src="halo-halo.jpg" alt="Halo-Halo">   </a>
+                                    </div>
+                                    <div class="food-info">
+                                        <div class="restaurant-name">
+                                            <span>Mang Inasal</span>
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <span>4.7</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="food-name">Pinoy Halo-Halo</h3>
+                                        <p class="food-description">Filipino dessert with shaved ice, sweet beans, fruits, jelly, and ice cream.</p>
+                                        <div class="food-meta">
+                                            <div class="delivery-info">
+                                                <i class="fas fa-clock"></i>
+                                                <span>20-30 min</span>
+                                            </div>
+                                            <div class="price-info">
+                                                <span class="current-price">₱99</span>
+                                            </div>
+                                        </div>
+                                        <div class="food-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus-btn" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span class="quantity">1</span>
+                                                <button class="quantity-btn plus-btn">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <button class="add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Click Here to order
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </section>
+            
+    </section>
+      <!-- App Download Section -->
+      <section class="app-download">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-text">
+                    <h2>Download the FoodPanda App</h2>
+                    <p>Get exclusive deals and faster delivery when you order on our app!</p>
+                    <div class="app-buttons">
+                        <a href="https://apps.apple.com/ph/app/foodpanda-food-groceries/id758103884" class="app-btn">
+                            <img src="app pero store.jpg" alt="App Store">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.global.foodpanda.android&hl=en-US" class="app-btn">
+                            <img src="appstore.jpg" alt="Google Play">
+                        </a>
+                    </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FoodPanda</h3>
+                    <ul>
+                        <li><a href="https://magazine.foodpanda.ph/about-us/">About us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="https://www.foodpanda.pk/contents/contact.htm#:~:text=If%20you%20wish%20to%20contact%20us%20regarding%20any,%3E%20My%20Orders%20%3E%20Get%20Help%20Contact%20us%21">Contact us</a></li>
+                        <li><a href="https://pandariders.foodpanda.ph/faq/general-information/">FAQ</a></li>
+                        <li><a href="https://www.foodpanda.ph/city/manila/area/">Delivery areas</a></li>
+                        <li><a href="https://www.foodpanda.ph/contents/terms-and-conditions.htm">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Follow us</h3>
+                    <div class="social-icons"></div>
+                        <a href="https://www.facebook.com/foodpandaphilippines">
+                            <img src="facebook.png" alt=""><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/foodpandaph">
+                            <img src="twitter 2.png" alt=""><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/foodpanda_ph/">
+                            <img src="ig.jpg" alt=""><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FoodPanda All rights reserved.</p>
+            </div>
+        </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

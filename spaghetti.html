@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolly Spagheti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href=
+    "https://th.bing.com/th/id/OIP.-c9_Pm6tMZkaNehw9cK96AHaIV?rs=1&pid=ImgDetMain"
+            type="image/x-icon" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+           background-image: url(pandafood.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 1950px 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .delivery-time {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+            background-color: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        
+        .clock-icon {
+            margin-right: 5px;
+            color: #888;
+        }
+        
+        .price {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            width: 120px;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #666;
+            font-size: 16px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .quantity-btn:disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s ease;
+        }
+        
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+        
+        .add-to-cart {
+            background-color:  #D70F64;
+            color: white;
+        }
+        
+        .view-cart {
+            background-color:  gray;
+            color: white;
+        }
+        
+        .buy-now {
+            background-color:  #D70F64;
+            color: white;
+        }
+        
+        .btn-icon {
+            margin-right: 8px;
+        }
+        
+        /* Cart styles */
+        .cart-container {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding-bottom: 150px;
+        }
+        
+        .cart-container.active {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 10;
+        }
+        
+        .cart-header h3 {
+            font-size: 20px;
+            color: #333;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .cart-items {
+            padding: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 15px;
+            background-color: #f5f5f5;
+        }
+        
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .cart-item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-quantity-btn {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .cart-quantity {
+            padding: 0 10px;
+            font-size: 14px;
+        }
+        
+        .remove-item {
+            background: none;
+            border: none;
+            color: #FF7A45;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .cart-footer {
+            position: fixed;
+            bottom: 0;
+            width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            background-color:  #D70F64;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+        
+        .checkout-btn:hover {
+            opacity: 0.9;
+        }
+        
+        .cart-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        
+        .cart-empty i {
+            font-size: 50px;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .cart-empty p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color:  green;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1002;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .modal h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .modal p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .modal-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+        
+        .modal-btn.primary {
+            background-color:  #D70F64;
+            color: white;
+        }
+        
+        .modal-btn.secondary {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .modal-btn:hover {
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .cart-container {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .cart-footer {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <div class="product-image">
+            <img src="jolly-spagheti.jpg" alt="sphag joy">
+        </div>
+        <div class="product-info">
+            <h2 class="product-name">Jolly Spaghetti</h2>
+            <p class="product-description">Sweet-style spaghetti with ground meat, hotdog slices, and cheese.</p>
+            <div class="product-meta">
+                <div class="delivery-time">
+                    <i class="far fa-clock clock-icon"></i>
+                    <span>15-25 min</span>
+                </div>
+                <div class="price">₱99</div>
+            </div>
+            <div class="quantity-control">
+                <button class="quantity-btn minus-btn" id="decreaseQuantity" disabled>−</button>
+                <input type="text" class="quantity-input" id="quantity" value="1" readonly>
+                <button class="quantity-btn plus-btn" id="increaseQuantity">+</button>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn add-to-cart" id="addToCart">
+                    <i class="fas fa-shopping-cart btn-icon"></i>
+                    Add to Cart
+                </button>
+                <button class="action-btn view-cart" id="viewCart">
+                    <i class="fas fa-eye btn-icon"></i>
+                    View Cart
+                </button>
+                <button class="action-btn buy-now" id="buyNow">
+                    <i class="fas fa-bolt btn-icon"></i>
+                    Buy Now
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Shopping Cart -->
+    <div class="cart-container" id="cartContainer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount" id="totalAmount">₱0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+    
+    <!-- Buy Now Modal -->
+    <div class="modal-overlay" id="buyNowModal">
+        <div class="modal">
+            <h3>Complete Your Purchase</h3>
+            <p>You are about to purchase <span id="modalQuantity">1</span>Jolly Spaghetti ₱<span id="modalTotal">144</span>.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn secondary" id="cancelBuy">Cancel</button>
+                <button class="modal-btn primary" id="confirmBuy">Confirm Purchase</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        Item added to cart!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Product data
+            const product = {
+                name: 'Jolly Spaghetti',
+                description: 'Sweet-style spaghetti with ground meat, hotdog slices, and cheese.',
+                price: 99,
+                image: 'jolly-spagheti.jpg'
+            };
+            
+            // DOM Elements
+            const decreaseQuantityBtn = document.getElementById('decreaseQuantity');
+            const increaseQuantityBtn = document.getElementById('increaseQuantity');
+            const quantityInput = document.getElementById('quantity');
+            const addToCartBtn = document.getElementById('addToCart');
+            const viewCartBtn = document.getElementById('viewCart');
+            const buyNowBtn = document.getElementById('buyNow');
+            const cartContainer = document.getElementById('cartContainer');
+            const closeCartBtn = document.getElementById('closeCart');
+            const cartItems = document.getElementById('cartItems');
+            const totalAmount = document.getElementById('totalAmount');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const notification = document.getElementById('notification');
+            const buyNowModal = document.getElementById('buyNowModal');
+            const modalQuantity = document.getElementById('modalQuantity');
+            const modalTotal = document.getElementById('modalTotal');
+            const cancelBuyBtn = document.getElementById('cancelBuy');
+            const confirmBuyBtn = document.getElementById('confirmBuy');
+            
+            // Cart data
+            let cart = [];
+            
+            // Decrease quantity
+            decreaseQuantityBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantityInput.value);
+                if (quantity > 1) {
+                    quantity--;
+                    quantityInput.value = quantity;
+                    
+                    if (quantity === 1) {
+                        decreaseQuantityBtn.disabled = true;
+                    }
+                }
+            });
+            
+            // Increase quantity
+            increaseQuantityBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantityInput.value);
+                quantity++;
+                quantityInput.value = quantity;
+                
+                if (quantity > 1) {
+                    decreaseQuantityBtn.disabled = false;
+                }
+            });
+            
+            // Add to cart
+            addToCartBtn.addEventListener('click', function() {
+                const quantity = parseInt(quantityInput.value);
+                
+                // Check if item already exists in cart
+                const existingItemIndex = cart.findIndex(item => item.name === product.name);
+                
+                if (existingItemIndex !== -1) {
+                    // Update quantity if item exists
+                    cart[existingItemIndex].quantity += quantity;
+                } else {
+                    // Add new item to cart
+                    cart.push({
+                        ...product,
+                        quantity: quantity
+                    });
+                }
+                
+                // Reset quantity
+                quantityInput.value = 1;
+                decreaseQuantityBtn.disabled = true;
+                
+                // Update cart UI
+                updateCart();
+                
+                // Show notification
+                showNotification('Item added to cart!');
+            });
+            
+            // View cart
+            viewCartBtn.addEventListener('click', function() {
+                cartContainer.classList.add('active');
+            });
+            
+            // Close cart
+            closeCartBtn.addEventListener('click', function() {
+                cartContainer.classList.remove('active');
+            });
+            
+            // Buy now
+            buyNowBtn.addEventListener('click', function() {
+                const quantity = parseInt(quantityInput.value);
+                const total = product.price * quantity;
+                
+                modalQuantity.textContent = quantity;
+                modalTotal.textContent = total;
+                
+                buyNowModal.classList.add('active');
+            });
+            
+            // Cancel buy
+            cancelBuyBtn.addEventListener('click', function() {
+                buyNowModal.classList.remove('active');
+            });
+            
+            // Confirm buy
+            confirmBuyBtn.addEventListener('click', function() {
+                const quantity = parseInt(modalQuantity.textContent);
+                
+                showNotification('Purchase successful! Thank you for your order.');
+                buyNowModal.classList.remove('active');
+                
+                // Reset quantity
+                quantityInput.value = 1;
+                decreaseQuantityBtn.disabled = true;
+            });
+            
+            // Close modal when clicking outside
+            buyNowModal.addEventListener('click', function(e) {
+                if (e.target === buyNowModal) {
+                    buyNowModal.classList.remove('active');
+                }
+            });
+            
+            // Checkout
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length > 0) {
+                    showNotification('Checkout successful! Thank you for your order.');
+                    cart = [];
+                    updateCart();
+                    cartContainer.classList.remove('active');
+                } else {
+                    showNotification('Your cart is empty!');
+                }
+            });
+            
+            // Update cart UI
+            function updateCart() {
+                // Update cart items
+                cartItems.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartItems.innerHTML = `
+                        <div class="cart-empty">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    `;
+                } else {
+                    cart.forEach((item, index) => {
+                        const cartItemElement = document.createElement('div');
+                        cartItemElement.className = 'cart-item';
+                        
+                        cartItemElement.innerHTML = `
+                            <div class="cart-item-image">
+                                <img src="${item.image}" alt="${item.name}">
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-name">${item.name}</div>
+                                <div class="cart-item-price">₱${item.price} x ${item.quantity}</div>
+                                <div class="cart-item-actions">
+                                    <div class="cart-item-quantity">
+                                        <button class="cart-quantity-btn cart-minus-btn" data-index="${index}">−</button>
+                                        <span class="cart-quantity">${item.quantity}</span>
+                                        <button class="cart-quantity-btn cart-plus-btn" data-index="${index}">+</button>
+                                    </div>
+                                    <button class="remove-item" data-index="${index}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        
+                        cartItems.appendChild(cartItemElement);
+                    });
+                    
+                    // Add event listeners to cart item buttons
+                    document.querySelectorAll('.cart-minus-btn').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const index = parseInt(this.getAttribute('data-index'));
+                            if (cart[index].quantity > 1) {
+                                cart[index].quantity--;
+                                updateCart();
+                            }
+                        });
+                    });
+                    
+                    document.querySelectorAll('.cart-plus-btn').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const index = parseInt(this.getAttribute('data-index'));
+                            cart[index].quantity++;
+                            updateCart();
+                        });
+                    });
+                    
+                    document.querySelectorAll('.remove-item').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const index = parseInt(this.getAttribute('data-index'));
+                            cart.splice(index, 1);
+                            updateCart();
+                            showNotification('Item removed from cart!');
+                        });
+                    });
+                }
+                
+                // Update total amount
+                totalAmount.textContent = '₱' + calculateTotal().toFixed(2);
+            }
+            
+            // Calculate total
+            function calculateTotal() {
+                return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            }
+            
+            // Show notification
+            function showNotification(message) {
+                notification.textContent = message;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Initialize
+            updateCart();
+        });
+    </script>
+</body>
+</html>
